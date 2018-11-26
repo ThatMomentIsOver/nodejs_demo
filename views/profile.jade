@@ -1,0 +1,45 @@
+include ./layout
+
+- var raw_userid = user[0]['id'];
+- var raw_user_name = user[0]['username'];
+- var user_status = user[0]['status'];
+
+block content
+	div.container
+		div.rows
+			div.col-lg-6.col-sm-10
+				h3 Profile
+				br 
+				form
+					div.form-group.row
+						label.col-md-2.col-form-label(for='staticEmail') UserID
+						div.col-sm-10
+							input.form-control#id(placeholder=raw_userid, readonly, type="text")
+						label.col-md-2.col-form-label(for='staticEmail') Username
+						div.col-sm-10
+							input.form-control#name(placeholder=raw_user_name, readonly, type="text")
+						label.col-md-2.col-form-label Status
+						div.col-sm-10
+							input.form-control#status(placeholder=user_status, readonly, type="text")
+	
+				form.form-horizontal
+					div.input-group#newid(style='display:none')
+						label.input-group-addon(for="inputID") New ID 
+						div.col-sm-15
+							input.form-control#stuid(placeholder="id", type="text")
+					div.input-group#newname(style='display:none')
+						label.input-group-addon(for="inputNAME") New User Name
+						div.col-sm-15
+							input.form-control#stuname(placeholder="name", type="text")
+					br
+					div.progress#progress_panel(style='display:none')
+						.progress-bar.progress-bar-striped.attive(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+					div.alert.alert-danger#error(style='display:none') 存在未填写的必填项,请重新检查后提交
+					div.alert.alert-danger#exist_error(style='display:none') PRIMARY KEY 已存在
+					tr
+						td
+							button.btn.btn-primary#submit(raw_id=raw_userid, type="submit", style='display:none') Submit
+							|&nbsp
+							|&nbsp
+							button.btn.btn-default#updateprofile(type="submit") Update profile
+	script(src="/javascripts/profile.js")

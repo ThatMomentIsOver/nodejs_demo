@@ -1,0 +1,42 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				form.form-inline
+						input.form-control#searchId(type="text" , placeholder="Seach ID")
+						button.btn.btn-default#attendsearch(type="submit") Search
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th Week0
+						th Week1
+						th Week2
+						th Week3
+						th Week4
+						th Week5
+						th Week6
+						th Week7
+						th Week8
+						th Week9
+						th Edit
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.stu_id}
+								td #{item.username}
+								td #{item.weekA}
+								td #{item.weekB}
+								td #{item.weekC}
+								td #{item.weekD}
+								td #{item.weekE}
+								td #{item.weekF}
+								td #{item.weekG}
+								td #{item.weekH}
+								td #{item.weekI}
+								td #{item.weekJ}
+								td
+									a.btn.btn-primary#editattend(data-id="#{item.stu_id}", data-username="#{item.username}",data-weekA='#{item.weekA}',data-name="#{item.name}", data-weekB='#{item.weekB}', data-weekC='#{item.weekC}',  data-weekD='#{item.weekD}', data-weekE='#{item.weekE}',  data-weekF='#{item.weekF}',  data-weekG='#{item.weekG}', data-weekH='#{item.weekH}', data-weekI='#{item.weekI}', data-weekJ='#{item.weekJ}') edit
+
+script(src="/javascripts/adminpanel.js")

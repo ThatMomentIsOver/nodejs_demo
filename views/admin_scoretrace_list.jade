@@ -1,0 +1,28 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				form.form-inline
+						input.form-control#searchId(type="text" , placeholder="Seach ID")
+						button.btn.btn-default#tracesearch(type="submit") Search
+						|&nbsp
+						|&nbsp
+						|&nbsp
+						button.btn.btn-success#set_attend_op(type="submit") Set
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th attend score
+						th homework score
+						th labs score
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.stu_id}
+								td #{item.username}
+								td #{item.attendance_score}
+								td #{item.homework_score}
+								td #{item.labs}
+	script(src="/javascripts/adminpanel.js")

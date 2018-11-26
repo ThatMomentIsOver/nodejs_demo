@@ -1,0 +1,34 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				form.form-inline
+						input.form-control#searchId(type="text" , placeholder="Seach ID")
+						button.btn.btn-default#homeworksearch(type="submit") Search
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th homeworkA
+						th homeworkB
+						th homeworkC
+						th homeworkD
+						th homeworkE
+						th score
+						th Edit
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.stu_id}
+								td #{item.username}
+								td #{item.homeworkA}
+								td #{item.homeworkB}
+								td #{item.homeworkC}
+								td #{item.homeworkD}
+								td #{item.homeworkE}
+								td #{item.score}
+								td
+									a.btn.btn-primary#edithomework(data-id="#{item.stu_id}", data-name="#{item.username}", homeworkA="#{item.homeworkA}", homeworkB="#{item.homeworkB}", homeworkC="#{item.homeworkC}", homeworkD="#{item.homeworkD}", homeworkE="#{item.homeworkE}") edit
+
+	script(src="/javascripts/adminpanel.js")

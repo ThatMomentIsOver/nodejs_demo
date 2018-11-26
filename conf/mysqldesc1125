@@ -1,0 +1,260 @@
+-- MySQL dump 10.13  Distrib 5.5.62, for linux-glibc2.12 (x86_64)                                     [225/820]
+--
+-- Host: localhost    Database: user
+-- ------------------------------------------------------
+-- Server version       5.5.62
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `attend`
+--
+
+DROP TABLE IF EXISTS `attend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attend` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `weekA` int(11) DEFAULT NULL,
+  `weekB` int(11) DEFAULT NULL,
+  `weekC` int(11) DEFAULT NULL,
+  `weekD` int(11) DEFAULT NULL,
+  `weekE` int(11) DEFAULT NULL,
+  `weekF` int(11) DEFAULT NULL,
+  `weekG` int(11) DEFAULT NULL,
+  `weekH` int(11) DEFAULT NULL,
+  `weekI` int(11) DEFAULT NULL,
+  `weekJ` int(11) DEFAULT NULL,
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attend`
+--
+
+LOCK TABLES `attend` WRITE;
+/*!40000 ALTER TABLE `attend` DISABLE KEYS */;
+INSERT INTO `attend` VALUES (1,-1,NULL,NULL,NULL,1,1,-1,NULL,-1,NULL,1003),(3,NULL,NULL,-1,NULL,-1,NULL,NULL,NU
+LL,1,NULL,1003),(2019223,NULL,NULL,-1,NULL,NULL,NULL,NULL,NULL,1,NULL,1003);
+/*!40000 ALTER TABLE `attend` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_info`
+--
+
+DROP TABLE IF EXISTS `course_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `course_info` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  `as_score` int(11) DEFAULT NULL,
+  `final_score` int(11) DEFAULT NULL,
+  `grade` int(11) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_info`
+--
+
+LOCK TABLES `course_info` WRITE;
+/*!40000 ALTER TABLE `course_info` DISABLE KEYS */;
+INSERT INTO `course_info` VALUES (1,1003,9,6,NULL),(3,1003,18,2,NULL),(2019223,1003,2,3,NULL);
+/*!40000 ALTER TABLE `course_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courselist`
+--
+
+DROP TABLE IF EXISTS `courselist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `courselist` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courselist`
+--
+
+LOCK TABLES `courselist` WRITE;
+/*!40000 ALTER TABLE `courselist` DISABLE KEYS */;
+INSERT INTO `courselist` VALUES (1001,'ctf'),(1003,'pwn');
+/*!40000 ALTER TABLE `courselist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `final`
+--
+
+DROP TABLE IF EXISTS `final`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `final` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  `qA` int(11) DEFAULT NULL,
+  `qB` int(11) DEFAULT NULL,
+  `qC` int(11) DEFAULT NULL,  `qD` int(11) DEFAULT NULL,
+  `qE` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `final`
+--
+
+LOCK TABLES `final` WRITE;
+/*!40000 ALTER TABLE `final` DISABLE KEYS */;
+INSERT INTO `final` VALUES (1,1003,1,1,2,2,0,6),(3,1003,0,2,0,0,0,2),(2019223,1003,1,2,0,0,0,3);
+/*!40000 ALTER TABLE `final` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `homework`
+--
+
+DROP TABLE IF EXISTS `homework`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `homework` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  `homeworkA` int(11) DEFAULT NULL,
+  `homeworkB` int(11) DEFAULT NULL,
+  `homeworkC` int(11) DEFAULT NULL,
+  `homeworkD` int(11) DEFAULT NULL,
+  `homeworkE` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `homework`
+--
+
+LOCK TABLES `homework` WRITE;
+/*!40000 ALTER TABLE `homework` DISABLE KEYS */;
+INSERT INTO `homework` VALUES (1,1003,2,NULL,NULL,0,NULL,2),(3,1003,0,2,NULL,NULL,NULL,2),(2019223,1003,NULL,NU
+LL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `homework` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `labs`
+--
+
+DROP TABLE IF EXISTS `labs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `labs` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  `labA` int(11) DEFAULT NULL,
+  `labB` int(11) DEFAULT NULL,
+  `labC` int(11) DEFAULT NULL,
+  `labD` int(11) DEFAULT NULL,
+  `labE` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `labs`
+--
+
+LOCK TABLES `labs` WRITE;
+/*!40000 ALTER TABLE `labs` DISABLE KEYS */;
+INSERT INTO `labs` VALUES (1,1003,1,NULL,NULL,NULL,NULL,1),(3,1003,NULL,12,NULL,NULL,NULL,12),(2019223,1003,NUL
+L,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `labs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `score_trace`
+--
+
+DROP TABLE IF EXISTS `score_trace`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `score_trace` (
+  `stu_id` int(11) NOT NULL DEFAULT '0',
+  `course_id` int(11) NOT NULL DEFAULT '0',
+  `attendance_score` int(11) DEFAULT NULL,
+  `homework_score` int(11) DEFAULT NULL,
+  `labs` int(11) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`,`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `score_trace`
+--
+
+LOCK TABLES `score_trace` WRITE;
+/*!40000 ALTER TABLE `score_trace` DISABLE KEYS */;
+INSERT INTO `score_trace` VALUES (1,1003,6,2,1),(3,1003,4,2,12),(2019223,1003,2,NULL,NULL);
+/*!40000 ALTER TABLE `score_trace` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `permission` varchar(10) DEFAULT NULL,
+  `github_id` varchar(100) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (0,'root','root','root',NULL,'waiting'),(1,'test','test','guest',NULL,NULL),(3,'ccc'
+,'kkk','guest',NULL,NULL),(2019223,'haha','000',NULL,NULL,NULL),(8553387,NULL,NULL,NULL,'8553387',NULL),(363377
+02,NULL,NULL,NULL,'36337702',NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-11-24 17:17:57

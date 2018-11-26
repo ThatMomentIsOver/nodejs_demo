@@ -1,0 +1,38 @@
+
+- var id = result[0]['course_id'];
+- var name = result[0]['course_name'];
+- var num = result[0]['COUNT(*)'];
+
+include ./layout
+block content
+  body(background)
+  div.container
+    .jumbotron
+      h2.display-4 #{id} | #{name}
+      p.lead
+        br
+        | enrolled: #{num}
+      hr.my-4
+      a.btn.btn-primary.btn-lg#stulist( data-id=id ) 选课
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#attendlist( data-id=id ) 考勤
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#homework( data-id=id ) 作业
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#labs(data-id=id) 实验
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#final(data-id=id) 期考
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#tracelist(data-id=id) 平时成绩
+      |&nbsp
+      |&nbsp
+      a.btn.btn-primary.btn-lg#infolist(data-id=id) 成绩
+      |&nbsp
+      |&nbsp
+      a.btn.btn-danger.btn-lg#set_per(data-id=id) 考核比例
+  script(src='/javascripts/adminpanel.js')

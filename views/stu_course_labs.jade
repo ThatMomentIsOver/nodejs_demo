@@ -1,0 +1,26 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				table.table.table-bordered.table-hover
+					tr
+						th course_id
+						th course_name
+						th lab0
+						th lab1
+						th lab2
+						th lab3
+						th lab4
+						th score 
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.course_id}
+								td #{item.name}
+								td #{item.labA}
+								td #{item.labB}
+								td #{item.labC}
+								td #{item.labD}
+								td #{item.labE}
+								td #{item.score}

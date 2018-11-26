@@ -1,0 +1,24 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th github-id
+						th google-id
+						th status
+						th Edit
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.id}
+								td #{item.username}
+								td #{item.github_id}
+								td #{item.google_id}
+								td #{item.status}
+								td
+									a.btn.btn-primary#confirmUser(data-id="#{item.id}") 通过
+	script(src="/javascripts/adminpanel.js")

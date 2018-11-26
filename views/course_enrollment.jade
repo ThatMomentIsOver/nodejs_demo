@@ -1,0 +1,23 @@
+include ./layout
+block content
+  div.container 
+    div.rows 
+      div.col-lg-10 
+      table.table.table-vordered.table-hover
+        tr
+          th course_id
+          th course_name
+          th status
+          th edit
+        tbody#info
+          each item in result
+            tr
+              td #{item.id}
+              td #{item.name}
+              td #{item.stu_id}
+              td
+                a.btn.btn-success#enroll(data-id="#{item.id}", data-status="#{item.stu_id}") ENROLL
+                |&nbsp
+                |&nbsp
+                a.btn.btn-warning#quit(data-id="#{item.id}", data-status="#{item.stu_id}") QUIT
+ script(src="/javascripts/enroll.js")

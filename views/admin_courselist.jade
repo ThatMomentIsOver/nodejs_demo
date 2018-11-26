@@ -1,0 +1,25 @@
+include ./layout
+block content
+  div.container
+    div.rows
+      div.col-lg-10
+        table.table
+          tr
+            th course id
+            th course name
+            th edit
+          tbody#infoContainer
+            each item in result
+              tr
+                td #{item.id}
+                td #{item.name}
+                td
+                  a.btn.btn-info#manage(data-id="#{item.id}", data-name="#{item.name}") MANAGE
+                  |&nbsp
+                  |&nbsp
+                  a.btn.btn-warning#del(data-id="#{item.id}", data-name="#{item.name}") DELETE
+          tfoot
+            tr
+              td(colspan='9')
+                a.btn.btn-primary#appendnewcourse(href="./appendCourseMiddle") ADD
+script(src='/javascripts/adminpanel.js')

@@ -1,0 +1,115 @@
+course_info 课程成绩记录（平时、final）
+score_trace 平时成绩记录
+	- labs 
+	- attend 
+	- homework
+courselist 开课课程
+users 登录用户
+
+
+mysql> show tables;
++----------------+
+| Tables_in_user |
++----------------+
+| attend         |
+| courselist     |
+| users          |
++----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc attend;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(11)      | NO   | PRI | NULL    |       |
+| name  | varchar(100) | YES  |     | NULL    |       |
+| weekA | int(11)      | YES  |     | NULL    |       |
+| weekB | int(11)      | YES  |     | NULL    |       |
+| weekC | int(11)      | YES  |     | NULL    |       |
+| weekD | int(11)      | YES  |     | NULL    |       |
+| weekE | int(11)      | YES  |     | NULL    |       |
+| weekF | int(11)      | YES  |     | NULL    |       |
+| weekG | int(11)      | YES  |     | NULL    |       |
+| weekH | int(11)      | YES  |     | NULL    |       |
+| weekI | int(11)      | YES  |     | NULL    |       |
+| weekJ | int(11)      | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+12 rows in set (0.01 sec)
+
+mysql> desc users;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int(11)      | NO   | PRI | NULL    |       |
+| username   | varchar(100) | YES  |     | NULL    |       |
+| password   | varchar(100) | YES  |     | NULL    |       |
+| permission | varchar(10)  | YES  |     | NULL    |       |
+| github_id  | varchar(100) | YES  |     | NULL    |       |
+| status     | varchar(20)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc courselist;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(11)      | YES  |     | NULL    |       |
+| name  | varchar(100) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> desc course_info;
++-------------+---------+------+-----+---------+-------+
+| Field       | Type    | Null | Key | Default | Extra |
++-------------+---------+------+-----+---------+-------+
+| stu_id      | int(11) | NO   | PRI | 0       |       |
+| course_id   | int(11) | NO   | PRI | 0       |       |
+| as_score    | int(11) | YES  |     | NULL    |       |
+| final_score | int(11) | YES  |     | NULL    |       |
+| grade       | int(11) | YES  |     | NULL    |       |
++-------------+---------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> desc score_trace;
++------------------+---------+------+-----+---------+-------+
+| Field            | Type    | Null | Key | Default | Extra |
++------------------+---------+------+-----+---------+-------+
+| stu_id           | int(11) | NO   | PRI | 0       |       |
+| course_id        | int(11) | NO   | PRI | 0       |       |
+| attendance_score | int(11) | YES  |     | NULL    |       |
+| homework_score   | int(11) | YES  |     | NULL    |       |
+| labs             | int(11) | YES  |     | NULL    |       |
++------------------+---------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> desc homework;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| stu_id    | int(11) | NO   | PRI | 0       |       |
+| course_id | int(11) | NO   | PRI | 0       |       |
+| homeworkA | int(11) | YES  |     | NULL    |       |
+| homeworkB | int(11) | YES  |     | NULL    |       |
+| homeworkC | int(11) | YES  |     | NULL    |       |
+| homeworkD | int(11) | YES  |     | NULL    |       |
+| homeworkE | int(11) | YES  |     | NULL    |       |
+| score     | int(11) | YES  |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc labs;                                                                                                                                  
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| stu_id    | int(11) | NO   | PRI | 0       |       |
+| course_id | int(11) | NO   | PRI | 0       |       |
+| labA      | int(11) | YES  |     | NULL    |       |
+| labB      | int(11) | YES  |     | NULL    |       |
+| labC      | int(11) | YES  |     | NULL    |       |
+| labD      | int(11) | YES  |     | NULL    |       |
+| labE      | int(11) | YES  |     | NULL    |       |
+| score     | int(11) | YES  |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+         select id,name,stu_id from courselist left join (select * from course_info where stu_id=1) as tmp on course_id=id;

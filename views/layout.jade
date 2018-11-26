@@ -1,0 +1,63 @@
+
+- if (user) { if (user[0]['permission'] === 'root') { var root_permission = true; } else { var root_permission = false; } }
+
+doctype html
+html(lang='en')
+  head
+    title Endless
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(type='text/javascript', src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    !='<!--[if lt IE]> Stop using IE !<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->'
+  body
+    nav.navbar.navbar-default(role='navigation').navbar-inverse
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Node Demo
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+             li(class=(title == 'Index' ? 'active' : ''))
+               a(href='/') Home
+             if (!root_permission && user)
+               li(class=(title == 'courselist' ? 'active' : ''))
+                   a(href='/auth/enroll') Enroll
+             if (!root_permission && user)
+               li(class=(title == 'getallgrade' ? 'active' : ''))
+                   a(href='/auth/getgrade') 成绩
+             if (!root_permission && user)
+               li(class=(title == 'getallattend' ? 'active' : ''))
+                   a(href='/auth/getattend') 考勤
+             if (!root_permission && user)
+               li(class=(title == 'getallhomework' ? 'active' : ''))
+                   a(href='/auth/gethomework') 作业
+             if (!root_permission && user)
+               li(class=(title == 'getalllabs' ? 'active' : ''))
+                   a(href='/auth/getlabs') 实验
+              if (!root_permission && user)
+               li(class=(title == 'getallfinal' ? 'active' : ''))
+                   a(href='/auth/getfinal') 期考
+              if (root_permission && user)
+               li(class=(title == 'courselist' ? 'active' : ''))
+                   a(href='/admin/courselist') 课程管理
+              if (root_permission && user)
+               li(class=(title == 'admin_confirmuser' ? 'active' : ''))
+                   a(href='/admin/confirmUser') 审核
+
+          ul.nav.navbar-nav.navbar-right
+           if user
+            li(class=(title == 'Profile' ? 'active' : ''))
+              a(href='/users/profile') Profile #{user[0]['id']}
+            li(class=(title == 'Logout' ? 'active' : ''))
+               a(href='/users/logout') Logout
+           if (!user)
+            li(class=(title == 'Login' ? 'active' : ''))
+               a(href='/users/login') Login
+
+      .container
+     block content

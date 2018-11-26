@@ -1,0 +1,26 @@
+include ./layout
+
+block content
+	div.container
+		div.rows
+			div.col-lg-6.col-sm-10
+				h1 Set Per
+				br 
+				form.form-horizontal
+					div.input-group
+						label.input-group-addon(for="inputID") 平时成绩占比
+						div.col-sm-15
+							input.form-control#as_score_per(type="text")
+					div.input-group
+						label.input-group-addon(for="inputNAME") 考试成绩占比
+						div.col-sm-15
+							input.form-control#final_score_per(type="text")
+					br
+					div.progress#progress_panel(style='display:none')
+						.progress-bar.progress-bar-striped.attive(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+					div.alert.alert-danger#error(style='display:none') 存在未填写的必填项,请重新检查后提交
+					div.alert.alert-danger#valueerror(style='display:none') value error
+					div.form-group
+						div.col-sm-offset-0.col-sm-10
+							button.btn.btn-default#save_per(type="submit") 提交
+	script(src="/javascripts/adminpanel.js")

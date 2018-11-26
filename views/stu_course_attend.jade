@@ -1,0 +1,34 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				table.table.table-bordered.table-hover
+					tr
+						th course_id
+						th course_name
+						th Week0
+						th Week1
+						th Week2
+						th Week3
+						th Week4
+						th Week5
+						th Week6
+						th Week7
+						th Week8
+						th Week9
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.course_id}
+								td #{item.name}
+								td #{item.weekA}
+								td #{item.weekB}
+								td #{item.weekC}
+								td #{item.weekD}
+								td #{item.weekE}
+								td #{item.weekF}
+								td #{item.weekG}
+								td #{item.weekH}
+								td #{item.weekI}
+								td #{item.weekJ}

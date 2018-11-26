@@ -1,0 +1,38 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				form.form-inline
+						input.form-control#searchId(type="text" , placeholder="Seach ID")
+						button.btn.btn-default#finalsearch(type="submit") search
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th questionA
+						th questionB
+						th questionC
+						th questionD
+						th questionE
+						th score
+						th Edit
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.stu_id}
+								td #{item.username}
+								td #{item.qA}
+								td #{item.qB}
+								td #{item.qC}
+								td #{item.qD}
+								td #{item.qE}
+								td #{item.score}
+								td
+									a.btn.btn-primary#editfinal(data-id="#{item.stu_id}", data-name="#{item.username}", qA="#{item.qA}", qB="#{item.qB}", qC="#{item.qC}", qD="#{item.qD}", qE="#{item.qE}") edit
+					tfoot
+							tr
+								td(colspan='9')
+									a.btn.btn-success#editallfinal EditAll
+
+	script(src="/javascripts/adminpanel.js")

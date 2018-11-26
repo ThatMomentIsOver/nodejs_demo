@@ -1,0 +1,25 @@
+include ./layout
+block content
+	div.container
+		div.rows
+			div.col-lg-10
+				form.form-inline
+						input.form-control#searchId(type="text" , placeholder="Seach ID")
+						button.btn.btn-default#search(type="submit") Search
+				table.table.table-bordered.table-hover
+					tr
+						th id
+						th name
+						th Edit
+					tbody#infoContainer
+						each item in result
+							tr
+								td #{item.stu_id}
+								td #{item.username}
+								td
+									a.btn.btn-danger#quitbyadmin(data-id="#{item.id}") DELETE
+					tfoot
+							tr
+								td(colspan="13")
+									a.btn.btn-primary#addenrollbyadmin ADD
+	script(src="/javascripts/adminpanel.js")

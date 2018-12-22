@@ -2,11 +2,12 @@ include ./layout
 block content
 	div.container
 		div.rows
+		.jumbotron
 			div.col-lg-10
-				form.form-inline
+			form.form-inline
 						input.form-control#searchId(type="text" , placeholder="Seach ID")
 						button.btn.btn-default#attendsearch(type="submit") Search
-				table.table.table-bordered.table-hover
+			table.table.table-bordered.table-hover
 					tr
 						th id
 						th name

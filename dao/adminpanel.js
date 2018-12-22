@@ -72,6 +72,8 @@ module.exports = {
 
   addCourse: function(req, res, next) {
     var param = req.query || req.params;  
+    console.log(param);
+
     pool.getConnection(function(err, connection) {
 
       connection.query($sql.add_course, [param.course_id, param.course_name], function(err, result) {

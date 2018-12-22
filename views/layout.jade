@@ -9,6 +9,7 @@ html(lang='en')
     script(type='text/javascript', src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
     link(href='/stylesheets/bootstrap.css', rel='stylesheet')
     link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='/stylesheets/bg_set.css', rel='stylesheet')
     !='<!--[if lt IE]> Stop using IE !<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->'
   body
     nav.navbar.navbar-default(role='navigation').navbar-inverse
@@ -26,7 +27,7 @@ html(lang='en')
                a(href='/') Home
              if (!root_permission && user)
                li(class=(title == 'courselist' ? 'active' : ''))
-                   a(href='/auth/enroll') Enroll
+                   a(href='/auth/enroll') 选课
              if (!root_permission && user)
                li(class=(title == 'getallgrade' ? 'active' : ''))
                    a(href='/auth/getgrade') 成绩

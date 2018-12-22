@@ -1,0 +1,25 @@
+body {
+  background-size: 100%;
+  background-image: url(a.jpg); 
+  background-repeat: no-repeat;
+  background-size: 1600px 800px;
+}
+h1 {
+  color: White
+}
+h4 {
+  color: White
+}
+h3 {
+  color: White
+}
+label {
+  color: White
+}
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #F8F9FA;
+}

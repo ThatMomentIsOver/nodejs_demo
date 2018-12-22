@@ -1,8 +1,9 @@
 include ./layout
 
 block content
+link(href='/stylesheets/bg_set.css', rel='stylesheet')
 div.container
- h2.page-header Login
+ h1.page-header Login
  if errors
   each error, i in errors
    div.alert.alert-danger #{error.msg}

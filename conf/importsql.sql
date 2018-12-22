@@ -28,7 +28,7 @@ PRIMARY KEY (stu_id, course_id)
 
 create table courselist (
 id INT,
-name INT,
+name VARCHAR(100),
 PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
 
